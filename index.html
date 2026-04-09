@@ -1,0 +1,322 @@
+<!--
+TEMPLATE INICIANTE — IDEIATHON SENAI
+Versão didática para turma iniciante.
+
+IDEIA:
+- 1 arquivo HTML
+- 1 arquivo CSS
+- comentários claros
+- fácil de editar durante o ideiathon
+
+ESTRUTURA DE PASTAS
+/
+├── index.html
+└── style.css
+
+==================================================
+ARQUIVO: index.html
+==================================================
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    TROQUE O TÍTULO ABAIXO PELO NOME DA SOLUÇÃO DO GRUPO
+    Exemplo: EcoPelotas | Ideiathon SENAI
+  -->
+  <title>Nome da Solução | Ideiathon SENAI</title>
+
+  <!-- CONEXÃO COM O CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!--
+    ========================================
+    CABEÇALHO / MENU
+    ========================================
+    Aqui fica o nome do projeto e os links do menu.
+    Os links levam para as seções da própria página.
+  -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#inicio" class="logo">Grupo X • Solução Pelotas</a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#problema">Problema</a></li>
+          <li><a href="#solucao">Solução</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#impacto">Impacto</a></li>
+          <li><a href="#contato">CTA</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!--
+      ========================================
+      HERO / ABERTURA
+      ========================================
+      Essa é a primeira dobra da página.
+      Deve responder rapidamente:
+      - qual é a solução
+      - que problema ela enfrenta
+      - por que ela importa
+    -->
+    <section class="hero" id="inicio">
+      <div class="container hero-wrap">
+        <div class="hero-content">
+          <span class="eyebrow">Ideiathon SENAI • Pelotas</span>
+
+          <!-- TÍTULO PRINCIPAL DA SOLUÇÃO -->
+          <h1>Nome da solução que enfrenta um problema real da cidade</h1>
+
+          <!-- SUBTÍTULO / EXPLICAÇÃO RÁPIDA -->
+          <p>
+            Escrevam aqui uma frase clara explicando o que a solução faz, para quem ela existe e por que ela importa.
+          </p>
+
+          <!-- BOTÕES PRINCIPAIS -->
+          <div class="hero-actions">
+            <a href="#solucao" class="btn btn-primary">Conhecer solução</a>
+            <a href="#problema" class="btn btn-secondary">Entender problema</a>
+          </div>
+
+          <!-- TAGS / PALAVRAS-CHAVE -->
+          <div class="hero-badges">
+            <span class="badge">Problema real</span>
+            <span class="badge">Solução viável</span>
+            <span class="badge">HTML + CSS</span>
+          </div>
+        </div>
+
+        <!--
+          CARD LATERAL
+          Serve para resumir a proposta em 4 linhas.
+        -->
+        <aside class="hero-panel">
+          <h2>Resumo rápido</h2>
+          <ul>
+            <li><strong>Problema:</strong> escrevam em uma linha qual dor da cidade está sendo atacada.</li>
+            <li><strong>Público:</strong> indiquem quem sofre mais com isso.</li>
+            <li><strong>Solução:</strong> resumam em uma linha o que vocês propõem.</li>
+            <li><strong>Impacto:</strong> mostrem qual melhoria a cidade pode perceber.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!--
+      ========================================
+      SEÇÃO 1 — PROBLEMA
+      ========================================
+      Aqui o grupo deve mostrar:
+      - o problema real
+      - quem é impactado
+      - por que isso importa
+    -->
+    <section class="section" id="problema">
+      <div class="container">
+        <span class="eyebrow">01. Problema</span>
+        <h2 class="section-title">Qual problema de Pelotas estamos enfrentando?</h2>
+        <p class="section-text">
+          Aqui o grupo explica o contexto real: o que acontece, quem é afetado, onde isso aparece e por que o tema merece atenção.
+        </p>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>Dor principal</h3>
+            <p>Descrevam o problema central em linguagem simples, direta e concreta.</p>
+          </article>
+
+          <article class="card">
+            <h3>Quem é impactado</h3>
+            <p>Mostrem quais pessoas, bairros, grupos ou públicos sofrem mais com essa situação.</p>
+          </article>
+
+          <article class="card">
+            <h3>Por que isso importa</h3>
+            <p>Explique a relevância social, urbana, econômica, ambiental ou educacional do desafio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      ========================================
+      SEÇÃO 2 — SOLUÇÃO
+      ========================================
+      Aqui o grupo apresenta a proposta.
+      O foco é clareza, não complexidade.
+    -->
+    <section class="section section-alt" id="solucao">
+      <div class="container">
+        <span class="eyebrow">02. Solução</span>
+        <h2 class="section-title">Nossa proposta</h2>
+        <p class="section-text">
+          Apresentem a solução de forma objetiva. Não tentem explicar tudo. Mostrem a lógica central, o diferencial e como ela ajuda o público.
+        </p>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>O que a solução faz</h3>
+            <p>Expliquem a proposta principal. Pode ser aplicativo, serviço, plataforma, campanha ou projeto comunitário.</p>
+          </article>
+
+          <article class="card">
+            <h3>Diferencial</h3>
+            <p>Mostrem por que essa solução é melhor, mais acessível, mais rápida ou mais útil do que o cenário atual.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      ========================================
+      SEÇÃO 3 — COMO FUNCIONA
+      ========================================
+      Aqui a solução é explicada em 3 passos.
+      Isso ajuda a deixar a ideia concreta.
+    -->
+    <section class="section" id="como-funciona">
+      <div class="container">
+        <span class="eyebrow">03. Como funciona</span>
+        <h2 class="section-title">A solução em 3 passos</h2>
+        <p class="section-text">
+          Essa seção ajuda a mostrar a lógica da solução. Pensem em uma jornada simples de uso.
+        </p>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="step-number">1</div>
+            <h3>Primeiro passo</h3>
+            <p>Expliquem a entrada do usuário, da comunidade ou da instituição.</p>
+          </article>
+
+          <article class="card">
+            <div class="step-number">2</div>
+            <h3>Segundo passo</h3>
+            <p>Mostrem o que acontece depois e como a solução gera valor.</p>
+          </article>
+
+          <article class="card">
+            <div class="step-number">3</div>
+            <h3>Terceiro passo</h3>
+            <p>Apresentem o resultado final, benefício ou transformação esperada.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      ========================================
+      SEÇÃO 4 — BENEFÍCIOS
+      ========================================
+      Aqui entram os ganhos concretos da proposta.
+    -->
+    <section class="section section-alt" id="beneficios">
+      <div class="container">
+        <span class="eyebrow">04. Benefícios</span>
+        <h2 class="section-title">O que muda com essa solução</h2>
+        <p class="section-text">
+          Organizem os principais ganhos da proposta. Benefício bom é aquele que conversa direto com o problema inicial.
+        </p>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>Benefício 1</h3>
+            <p>Expliquem um ganho direto para o público principal.</p>
+          </article>
+
+          <article class="card">
+            <h3>Benefício 2</h3>
+            <p>Mostrem um ganho para a cidade, escola, bairro ou comunidade.</p>
+          </article>
+
+          <article class="card">
+            <h3>Benefício 3</h3>
+            <p>Apresentem um efeito mais amplo: economia, acesso, segurança, organização ou impacto social.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      ========================================
+      SEÇÃO 5 — IMPACTO
+      ========================================
+      Aqui vocês podem usar números simbólicos.
+      Não precisam ser números reais, mas precisam fazer sentido.
+    -->
+    <section class="section" id="impacto">
+      <div class="container">
+        <span class="eyebrow">05. Impacto</span>
+        <h2 class="section-title">Indicadores que a solução pode melhorar</h2>
+        <p class="section-text">
+          Mesmo sem números reais, vocês podem usar métricas estimadas ou campos simbólicos para mostrar potencial.
+        </p>
+
+        <div class="metrics">
+          <div class="metric">
+            <strong>+40%</strong>
+            <span>Exemplo de melhoria em acesso ou eficiência</span>
+          </div>
+          <div class="metric">
+            <strong>-25%</strong>
+            <span>Exemplo de redução de uma dor urbana</span>
+          </div>
+          <div class="metric">
+            <strong>+1.000</strong>
+            <span>Exemplo de pessoas impactadas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      ========================================
+      SEÇÃO 6 — CTA FINAL
+      ========================================
+      CTA = call to action = chamada para ação.
+      É o fechamento da página.
+    -->
+    <section class="section section-alt" id="contato">
+      <div class="container">
+        <div class="cta-box">
+          <span class="eyebrow eyebrow-light">06. Chamada final</span>
+          <h2 class="section-title section-title-light">Vamos transformar esse problema em ação real?</h2>
+          <p>
+            Aqui vocês fecham a narrativa. Pode ser um convite para testar, apoiar, implementar, divulgar ou conectar a solução com parceiros.
+          </p>
+          <div class="hero-actions no-margin">
+            <a href="#inicio" class="btn btn-primary">Quero apoiar</a>
+            <a href="#problema" class="btn btn-secondary btn-light">Voltar ao topo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!--
+    ========================================
+    RODAPÉ
+    ========================================
+    Informações finais do grupo.
+  -->
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <p><strong>Grupo:</strong> Nome do grupo</p>
+      <p><strong>Cidade:</strong> Pelotas</p>
+      <p><strong>Evento:</strong> Ideiathon SENAI</p>
+    </div>
+  </footer>
+
+</body>
+</html>

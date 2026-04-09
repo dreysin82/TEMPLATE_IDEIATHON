@@ -1,0 +1,381 @@
+/* =========================
+       1. RESET / BASE
+    ========================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+      color: #1f2937;
+      background: #f8fafc;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* =========================
+       2. VARIABLES
+    ========================== */
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-alt: #eef2ff;
+      --text: #1f2937;
+      --text-light: #475569;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #0f172a;
+      --border: #dbe3ec;
+      --success: #16a34a;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --max-width: 1120px;
+      --space-1: 8px;
+      --space-2: 12px;
+      --space-3: 16px;
+      --space-4: 24px;
+      --space-5: 32px;
+      --space-6: 48px;
+      --space-7: 72px;
+    }
+
+    /* =========================
+       3. UTILITIES
+    ========================== */
+    .container {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: var(--space-7) 0;
+    }
+
+    .section-alt {
+      background: var(--surface-alt);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: var(--space-2);
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      margin-bottom: var(--space-3);
+      color: var(--accent);
+    }
+
+    .section-text {
+      max-width: 720px;
+      color: var(--text-light);
+      margin-bottom: var(--space-5);
+    }
+
+    .grid {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-4);
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-bottom: var(--space-2);
+      font-size: 1.15rem;
+      color: var(--accent);
+    }
+
+    .card p {
+      color: var(--text-light);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(37, 99, 235, 0.08);
+    }
+
+    /* =========================
+       4. HEADER / NAV
+    ========================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 250, 252, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(219, 227, 236, 0.8);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+    }
+
+    .logo {
+      font-weight: 800;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    .nav-menu a:hover {
+      color: var(--primary);
+    }
+
+    /* =========================
+       5. HERO
+    ========================== */
+    .hero {
+      padding: 88px 0 72px;
+      background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+    }
+
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: var(--space-5);
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.05;
+      margin-bottom: var(--space-3);
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 650px;
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .badge {
+      background: white;
+      color: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .hero-panel {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: var(--space-5);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel h2 {
+      font-size: 1.2rem;
+      margin-bottom: var(--space-3);
+    }
+
+    .hero-panel ul {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .hero-panel li {
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--border);
+      color: var(--text-light);
+    }
+
+    .hero-panel li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    /* =========================
+       6. HOW IT WORKS / STEPS
+    ========================== */
+    .step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: white;
+      font-weight: 800;
+      margin-bottom: var(--space-3);
+    }
+
+    /* =========================
+       7. IMPACT METRICS
+    ========================== */
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-4);
+    }
+
+    .metric {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: var(--space-4);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .metric span {
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    /* =========================
+       8. CTA FINAL
+    ========================== */
+    .cta-box {
+      background: var(--accent);
+      color: white;
+      border-radius: 28px;
+      padding: clamp(28px, 4vw, 48px);
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .cta-box p {
+      color: rgba(255, 255, 255, 0.82);
+      max-width: 700px;
+    }
+
+    /* =========================
+       9. FOOTER
+    ========================== */
+    .footer {
+      padding: var(--space-5) 0;
+      border-top: 1px solid var(--border);
+      background: white;
+    }
+
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* =========================
+       10. RESPONSIVE
+    ========================== */
+    @media (max-width: 900px) {
+      .hero-wrap,
+      .grid-2,
+      .grid-3,
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 12px 0;
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+    }
