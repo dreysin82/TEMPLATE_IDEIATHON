@@ -1,0 +1,17 @@
+PACOTE PRONTO - IDEIATHON
+
+1) Abra a pasta PACOTE_PRONTO.
+2) Execute no terminal (dentro desta pasta):
+   python3 -m http.server 8080
+3) Abra no navegador:
+   http://localhost:8080/INDEX_MODELO.HTML
+
+Fluxo:
+- Começar agora
+- preencher etapas
+- escolher layout
+- baixar HTML final (botão: Baixar página HTML)
+
+Se quiser mover projeto entre computadores:
+- Exportar JSON em um PC
+- Importar JSON no outro PC
