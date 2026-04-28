@@ -38,3 +38,10 @@ http://localhost:8080/INDEX_MODELO.HTML
 
 - Sem backend: os projetos ficam no `localStorage` do navegador.
 - Para mover projeto entre máquinas, use **Exportar JSON** e depois **Importar JSON**.
+
+
+## Entrega facilitada para os alunos
+
+- Na tela final do projeto, use **Baixar página HTML** para gerar um arquivo único que abre em qualquer navegador.
+- Em **Meus projetos**, cada card também tem **Baixar HTML** e **Exportar JSON**.
+- Para compartilhar com quem não tem os arquivos locais, prefira enviar o HTML baixado ou o JSON exportado.

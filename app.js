@@ -194,6 +194,45 @@ function template(project) {
   </div>`;
 }
 
+
+function downloadStandaloneHtml(project) {
+  const content = template(project);
+  const html = `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${safe(project.teamName)} • Projeto Ideiathon</title>
+  <style>
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f4f6;color:#0f172a}
+    .wrap{width:min(1000px,calc(100% - 32px));margin:20px auto}
+    .project-layout{padding:22px;background:#fff;border:1px solid #dbe3ec;border-radius:16px}
+    .hero-box,.block{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:16px;margin-bottom:14px}
+    .two-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .metric{font-size:1.8rem;font-weight:800;color:#1d4ed8}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+    .gallery img{width:100%;height:130px;object-fit:cover;border-radius:10px}
+    .layout-1 .hero-box{background:#eff6ff}
+    .layout-2{background:#0f172a;color:#e2e8f0}.layout-2 .hero-box,.layout-2 .block{background:#1e293b;border-color:#334155}
+    .layout-2 .metric{color:#93c5fd}
+    .layout-3 .hero-box{border-left:8px solid #16a34a}
+    .layout-4 .hero-box{border-top:8px solid #7c3aed}.layout-4 .block{border-left:4px solid #a78bfa}
+    @media(max-width:700px){.two-cols{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="wrap">${content}</main>
+</body>
+</html>`;
+
+  const blob = new Blob([html], { type: 'text/html' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `${project.teamName.replace(/\s+/g, '_').toLowerCase() || 'projeto'}.html`;
+  link.click();
+  URL.revokeObjectURL(link.href);
+}
+
 function renderSavedList() {
   const list = el('saved-list');
   const projects = allProjects();
@@ -211,6 +250,7 @@ function renderSavedList() {
         <div class="saved-actions">
           <button class="ghost" type="button" data-open="${p.id}">Abrir</button>
           <button class="ghost" type="button" data-export="${p.id}">Exportar JSON</button>
+          <button class="ghost" type="button" data-page="${p.id}">Baixar HTML</button>
           <button class="ghost danger" type="button" data-delete="${p.id}">Excluir</button>
         </div>
       </article>`
@@ -225,6 +265,13 @@ function renderSavedList() {
     btn.addEventListener('click', () => {
       const project = loadProject(btn.dataset.export);
       if (project) exportProject(project);
+    });
+  });
+
+  list.querySelectorAll('[data-page]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const project = loadProject(btn.dataset.page);
+      if (project) downloadStandaloneHtml(project);
     });
   });
 
@@ -263,6 +310,7 @@ function goToProject(id) {
       <span class="muted">Layout atual: ${project.layout}</span>
       <button type="button" class="ghost" data-copy-link>Copiar link</button>
       <button type="button" class="ghost" data-export>Exportar JSON</button>
+      <button type="button" class="ghost" data-download-html>Baixar página HTML</button>
       ${[1, 2, 3, 4]
         .map((n) => `<button type="button" class="ghost" data-swap="${n}">Trocar para ${n}</button>`)
         .join('')}
@@ -280,6 +328,7 @@ function goToProject(id) {
   });
 
   screens.project.querySelector('[data-export]').addEventListener('click', () => exportProject(project));
+  screens.project.querySelector('[data-download-html]').addEventListener('click', () => downloadStandaloneHtml(project));
 
   screens.project.querySelectorAll('[data-swap]').forEach((btn) => {
     btn.addEventListener('click', () => {
