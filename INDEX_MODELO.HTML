@@ -9,7 +9,10 @@
 <body>
   <header class="topbar">
     <h1>Ideiathon • Criador de Projetos</h1>
-    <button id="new-project-btn" class="ghost hidden" type="button">Criar novo projeto</button>
+    <div class="topbar-actions">
+      <button id="list-projects-btn" class="ghost hidden" type="button">Meus projetos</button>
+      <button id="new-project-btn" class="ghost hidden" type="button">Criar novo projeto</button>
+    </div>
   </header>
 
   <main class="container">
@@ -17,7 +20,11 @@
       <p class="tag">Bem-vindos</p>
       <h2>Monte seu projeto em poucos passos</h2>
       <p>Preencha as informações da equipe, problema, impacto e solução. No final vocês escolhem 1 de 4 layouts para exibir o projeto.</p>
-      <button id="start-btn" class="primary" type="button">Começar agora</button>
+      <div class="welcome-actions">
+        <button id="start-btn" class="primary" type="button">Começar agora</button>
+        <button id="open-list-btn" class="ghost" type="button">Ver projetos salvos</button>
+      </div>
+      <p class="muted">Sem login: os dados ficam no navegador. Você pode exportar/importar projetos em arquivo JSON.</p>
     </section>
 
     <section id="wizard-screen" class="panel hidden">
@@ -30,44 +37,44 @@
         <div data-step="1" class="step">
           <h3>Equipe</h3>
           <label>Nome da equipe
-            <input required name="teamName" placeholder="Ex.: Inova Jovem" />
+            <input required name="teamName" maxlength="80" placeholder="Ex.: Inova Jovem" />
           </label>
           <label>Nome dos integrantes (um por linha)
-            <textarea required name="members" rows="5" placeholder="Ana\nJoão\nMaria"></textarea>
+            <textarea required name="members" rows="5" maxlength="500" placeholder="Ana\nJoão\nMaria"></textarea>
           </label>
         </div>
 
         <div data-step="2" class="step hidden">
           <h3>Problema</h3>
           <label>Qual problema vocês querem resolver?
-            <textarea required name="problem" rows="7" placeholder="Descrevam o problema real."></textarea>
+            <textarea required name="problem" rows="7" maxlength="3000" placeholder="Descrevam o problema real."></textarea>
           </label>
         </div>
 
         <div data-step="3" class="step hidden">
           <h3>Destinatário da solução</h3>
           <label>Para quem vocês vão entregar a solução?
-            <textarea required name="audience" rows="5" placeholder="Quem recebe/usa a solução?"></textarea>
+            <textarea required name="audience" rows="5" maxlength="1500" placeholder="Quem recebe/usa a solução?"></textarea>
           </label>
         </div>
 
         <div data-step="4" class="step hidden">
           <h3>Dados de impacto</h3>
           <label>Métrica principal
-            <input required name="metricName" placeholder="Ex.: redução de filas" />
+            <input required name="metricName" maxlength="100" placeholder="Ex.: redução de filas" />
           </label>
           <label>Valor estimado
-            <input required name="metricValue" placeholder="Ex.: -35%" />
+            <input required name="metricValue" maxlength="30" placeholder="Ex.: -35%" />
           </label>
           <label>Descrição do impacto
-            <textarea required name="impact" rows="5" placeholder="Explique o impacto esperado."></textarea>
+            <textarea required name="impact" rows="5" maxlength="2000" placeholder="Explique o impacto esperado."></textarea>
           </label>
         </div>
 
         <div data-step="5" class="step hidden">
           <h3>Solução</h3>
           <label>Como a solução funciona?
-            <textarea required name="solution" rows="7" placeholder="Descrevam a solução completa."></textarea>
+            <textarea required name="solution" rows="7" maxlength="3000" placeholder="Descrevam a solução completa."></textarea>
           </label>
         </div>
 
@@ -77,7 +84,7 @@
             <input id="images" type="file" accept="image/*" multiple />
           </label>
           <div id="image-preview" class="image-preview"></div>
-          <p class="muted">As imagens ficam salvas no navegador para teste local.</p>
+          <p class="muted">Dica: use imagens leves (até 1MB) para não lotar o navegador.</p>
         </div>
 
         <div class="wizard-actions">
@@ -92,7 +99,21 @@
       <p class="tag">Escolha visual</p>
       <h2>Escolha 1 dos 4 layouts</h2>
       <div class="layout-grid" id="layout-grid"></div>
-      <p class="muted">Link do projeto: <a id="project-link" href="#"></a></p>
+      <div class="link-row">
+        <p class="muted">Link do projeto: <a id="project-link" href="#"></a></p>
+        <button id="copy-link-btn" class="ghost" type="button">Copiar link</button>
+      </div>
+    </section>
+
+    <section id="list-screen" class="panel hidden">
+      <div class="list-header">
+        <h2>Projetos salvos neste navegador</h2>
+        <div>
+          <button id="import-btn" class="ghost" type="button">Importar JSON</button>
+          <input id="import-input" class="hidden" type="file" accept="application/json" />
+        </div>
+      </div>
+      <div id="saved-list" class="saved-list"></div>
     </section>
 
     <section id="project-screen" class="panel hidden"></section>
